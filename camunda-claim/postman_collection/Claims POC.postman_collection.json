@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "7a789bbc-705d-4221-bf0c-129c3a38111b",
+		"name": "Claims POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38864593"
+	},
+	"item": [
+		{
+			"name": "1. Start Claim Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"variables\": {\"PolicyNo\": {\"value\": \"11223344\",\"type\":\"String\"},\"CustomerName\": {\"value\": \"John\",\"type\":\"String\"},\"PolicyEndDate\": {\"value\": \"2024-10-30\",\"type\":\"String\"}},\"businessKey\": \"11223344\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/process-definition/key/Process_0wtg2ed/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"process-definition",
+						"key",
+						"Process_0wtg2ed",
+						"start"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/process-definition/key/Process_0wtg2ed/start' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"variables\": {\"PolicyNo\": {\"value\": \"11223344\",\"type\":\"String\"},\"CustomerName\": {\"value\": \"John\",\"type\":\"String\"},\"PolicyEndDate\": {\"value\": \"2024-10-30\",\"type\":\"String\"}},\"businessKey\": \"11223344\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "2(a).Get Process Task ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"businessKey\": \"11223344\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"task"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {\"surveyor_passed\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"dw8976ft5dw79y8uddd\",\"resultEnabled\": true,\"messageName\": \"SURVEYOR_ASSESSMENT\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "2(b). Surveyor Assessment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"variables\": {\r\n    \"surveyor_decision\": {\"value\":true,\"type\":\"Boolean\"}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/task/25e914bf-8fd6-11ef-9ede-f67b093dbcbf/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"task",
+						"25e914bf-8fd6-11ef-9ede-f67b093dbcbf",
+						"complete"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {\"surveyor_passed\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"dw8976ft5dw79y8uddd\",\"resultEnabled\": true,\"messageName\": \"SURVEYOR_ASSESSMENT\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "3(a).Get Process Task ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"businessKey\": \"11223344\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"task"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {\"surveyor_passed\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"dw8976ft5dw79y8uddd\",\"resultEnabled\": true,\"messageName\": \"SURVEYOR_ASSESSMENT\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "3(b). Adjustor Assessment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"variables\": {\r\n    \"adjustor_decision\": {\"value\":true,\"type\":\"Boolean\"}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/task/a91e1c26-8fda-11ef-9ede-f67b093dbcbf/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"task",
+						"a91e1c26-8fda-11ef-9ede-f67b093dbcbf",
+						"complete"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {\"surveyor_passed\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"dw8976ft5dw79y8uddd\",\"resultEnabled\": true,\"messageName\": \"SURVEYOR_ASSESSMENT\"}"
+			},
+			"response": []
+		},
+		{
+			"name": "4. WORKSHOP COMPLETE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"processVariables\": {},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"WORKSHOP_COMPLETE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"WORKSHOP_COMPLETE\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "5. PAYMENT COMPLETE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"processVariables\": {\"payment_status\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"PAYMENT_COMPLETE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {\"payment_status\": {  \"value\": true,  \"type\": \"Boolean\"}},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"PAYMENT_COMPLETE\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "6. CLAIM COMPLETE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGVtbzpkZW1v"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"processVariables\": {},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"CLAIM_COMPLETE\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9091/engine-rest/message' \\\r\n--header 'Authorization: Basic ZGVtbzpkZW1v' \\\r\n--header 'Content-Type: application/json' \\\r\n--data '{\"processVariables\": {},\"businessKey\": \"11223344\",\"resultEnabled\": true,\"messageName\": \"CLAIM_COMPLETE\"}'"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,38 @@
+server:
+  port: 9091 
+spring:
+  application:
+    name: camundaclaim
+    
+  profiles:
+    active: local
+camunda:
+  bpm:
+    enabled: true
+    admin-user:
+      id: demo
+      password: demo
+      email: ufo@andromeda.com
+      first-name: Andromeda
+      last-name: Galaxy
+    database:
+      schema-update: true
+    filter:
+      create: All
+    authorization:
+      enabled: true
+    history-level: full
+    auto-deployment-enabled: true
+    default-number-of-retries: 3
+    job-execution:
+      enabled: true
+    webapp:
+      application-path: /camundaclaim
+    client:
+        base-url: http://localhost:9091/engine-rest #URL of Process Engine
+        lock-duration: 20000 # time in ms & external task will be locked
+        subscriptions:
+          ASSIGN_TO_CLAIM: 
+            variable-names: []
+logging.level.org.camunda.bpm.client: DEBUG       
+spring.datasource.url: jdbc:h2:file:./camunda
